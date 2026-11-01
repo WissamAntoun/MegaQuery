@@ -1,0 +1,48 @@
+{
+  "license": "odc-by",
+  "configuration_source": "Example settings for a new run, based on the public recipe; not proof of historical execution settings.",
+  "generation": {
+    "model": "google/gemma-3-1b-it",
+    "model_revision": null,
+    "code_revision": null,
+    "persona_embedding_model": "Qwen/Qwen3-Embedding-0.6B",
+    "stage1_enabled": false,
+    "top_k_personas": 1,
+    "question_types_sampled": 2,
+    "difficulties_sampled": 2,
+    "variants": "Cartesian product of the two randomly sampled question types and two randomly sampled difficulties",
+    "query_length_distribution_words": {
+      "10": 0.15,
+      "20": 0.3,
+      "30": 0.45,
+      "50": 0.1
+    },
+    "temperature": 0.7,
+    "top_p": 0.8,
+    "max_completion_tokens": 128,
+    "max_model_len": 6144,
+    "passage_view": "First 5000 characters, followed by truncation marker when cut"
+  },
+  "mining": {
+    "model": "Qwen/Qwen3-Embedding-0.6B",
+    "model_revision": null,
+    "index_metric": "cos",
+    "index_dtype": "f16",
+    "score_semantics": "1 - USearch cosine distance: document-to-document cosine similarity; higher means more similar",
+    "document_view": "First 512 whitespace-separated words with truncation marker when cut, then capped at 4096 characters",
+    "embed_prefix": "",
+    "embed_max_model_len": 8192,
+    "topk_kept": 64,
+    "skip_top_n": 32
+  },
+  "reranker": {
+    "model": "wissamantoun/bge-reranker-v2-gemma-seq-cls",
+    "model_revision": null,
+    "pipeline_version": "v4",
+    "store_raw_scores": true,
+    "score_semantics": "v4 requests scores with use_activation=false, stores the returned raw scalar as the raw score, and computes sigmoid(raw_score) for the regular reranker score. Higher means more relevant; not asserted to be a calibrated probability.",
+    "max_model_len": 8192,
+    "query_selection": "First nonempty distinct query encountered by canonical aggregation",
+    "candidate_view": "Title plus first 500 whitespace-separated words with truncation marker, capped at 3000 characters and stripped"
+  }
+}

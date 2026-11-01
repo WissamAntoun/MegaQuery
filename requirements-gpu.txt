@@ -1,0 +1,6 @@
+-r requirements.txt
+# Install PyTorch + vLLM for your accelerator FIRST; see docs/environment.md.
+# Ray's development APIs must pass examples/check_runtime.py before inference.
+ray[data,serve,llm]==3.0.0.dev0
+transformers>=4.51
+accelerate>=1

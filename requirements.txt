@@ -1,0 +1,9 @@
+# CPU readers, preparation, indexing and export. Python >=3.10.
+# These are compatibility constraints, not the historical environment lock.
+numpy>=1.26,<3
+pyarrow>=14,<26
+duckdb>=1.1.3,<2
+datasets>=3,<5
+huggingface-hub>=0.25,<2
+tqdm>=4.66,<5
+usearch==2.23.0

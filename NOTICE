@@ -1,0 +1,10 @@
+MegaQuery
+Copyright 2026 Wissam Antoun
+
+Includes src/convert_model_to_seq_cls.py from the vLLM project.
+Copyright contributors to the vLLM project.
+Licensed under Apache License 2.0; original SPDX notices are retained.
+
+The generation approach adapts the Qwen3 Embedding report's synthetic-query
+recipe. FinePDFs and MegaQuery dataset licenses and model licenses are separate
+from this source code license. See docs/attribution.md.
